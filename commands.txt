@@ -1,0 +1,3 @@
+javac Welcome.java world
+java Welcome
+
