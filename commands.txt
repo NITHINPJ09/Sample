@@ -1,6 +1,6 @@
 javac Welcome.java 
 java Welcome
-Heading
+My new Heading
 Cell 1
 Cell 2
 Cell 4
