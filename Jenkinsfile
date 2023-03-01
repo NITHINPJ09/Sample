@@ -4,15 +4,14 @@ pipeline {
     stages {
         
         stage('Version') {
-             when {
-                 expression {
-                    return env.BRANCH_NAME == 'master';
-                 }             
-             }
+            when {
+                branch 'feature'
+            }
             steps {
                 sh 'java --version'
             }
         }
+        
         stage('Compile') {
             steps {
                 sh 'javac Welcome.java'
@@ -24,5 +23,6 @@ pipeline {
                 sh 'java Welcome'
             }
         }
+        
     }
 }
