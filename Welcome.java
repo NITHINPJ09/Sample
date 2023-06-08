@@ -4,7 +4,7 @@ public class Welcome
 	{
 		System.out.println("Welcome to Jenkins!");
 		System.out.println("CELL 1");
-		System.out.println("CELL 2");
+		System.out.println("MY CELL 2");
 		System.out.println("CELL 3");
 	}
 }
