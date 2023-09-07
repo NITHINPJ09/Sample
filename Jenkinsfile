@@ -7,6 +7,8 @@ pipeline {
                 // Build your application and run tests
                 // Redirect your application's logs to a file (e.g., log.txt)
                 sh 'javac test.java > log.txt'
+                sh 'echo "Testing--------------------------------------------------"'
+                sh 'cat log.txt'
             }
         }
         stage('Parse Log for Errors') {
