@@ -2,17 +2,26 @@ pipeline {
     agent any
     stages {
                 
-        stage('Compile') {
+        stage('Build and Run Tests') {
             steps {
-                sh 'javac Welcome.java'
+                // Build your application and run tests
+                // Redirect your application's logs to a file (e.g., log.txt)
+                sh '''javac Welcome.java 
+                    java Welcome > logtext.txt'''
             }
         }
-        
-        stage('Run') {
+        stage('Parse Log for Errors') {
             steps {
-                sh 'java Welcome'
+                script {
+                    // Use the Log Parser Plugin to highlight errors
+                    def logParser = logParser(pattern: 'ERROR: (.*)', status: 'ERROR')
+                    def logFile = readFile('logtext.txt')
+                    def parsedLog = logParser.parseLog(logFile)
+
+                    // Output the parsed log to the console
+                    echo(parsedLog)
+                }
             }
         }
-        
     }
 }
