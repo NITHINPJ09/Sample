@@ -6,7 +6,7 @@ pipeline {
             steps {
                 // Build your application and run tests
                 // Redirect your application's logs to a file (e.g., log.txt)
-                sh 'javac welcome.java > log.txt'
+                sh 'javac Welcome.java > log.txt'
                 sh 'echo "Testing--------------------------------------------------"'
                 sh 'cat log.txt'
             }
