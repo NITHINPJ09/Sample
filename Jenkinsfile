@@ -11,6 +11,7 @@ pipeline {
         stage('Run') {
             steps {
                 sh 'java Welcome'
+                sh 'ls -a'
             }
         }
         
